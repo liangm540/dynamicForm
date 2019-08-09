@@ -218,7 +218,6 @@ export default {
     removeUserSon(flag, index, k) {
       if (flag === "user") {
         // 删除 一级用户下的 二级用户
-        console.log(this.user[index].userSon,k)
         this.user[index].userSon = this.user[index].userSon.filter(
           (ele, index) => index !== k
         );
@@ -233,7 +232,6 @@ export default {
     removeActSon(flag, index, k) {
       if (flag === "user") {
         // 删除的是一级用户 二级活动
-        console.log("delete user", index, k, this.user[index].actSon);
         this.user[index].actSon = this.user[index].actSon.filter(
           (ele, index) => index !== k
         );
@@ -247,7 +245,6 @@ export default {
 
     // 增加一级表单区域
     addUser() {
-      console.log(this.form);
       this.user.push({
         userSon: [],
         actSon: [],
@@ -321,17 +318,17 @@ export default {
       }
     },
 
+    // 预览处理
     handleSubmit(e) {
       e.preventDefault();
       this.form.validateFields((err, values) => {
         if (!err) {
-          console.log("Received values of form: ", values);
         }
       });
     },
 
+    // 表格数据请求方法
     handleTableChange(pagination, filters, sorter) {
-      console.log(pagination);
       const pager = { ...this.pagination };
       pager.current = pagination.current;
       this.pagination = pager;
